@@ -22,7 +22,7 @@ PRIV is a privacy-first booking and scheduling platform designed to give users f
 ## Tech Stack
  * **Backend:** C# / .NET 8 / ASP.NET Core Web API
  * **Database:** SQL Server Express / Entity Framework Core
- * **Frontend:** Modern HTML5, CSS3 (Custom Properties & Glassmorphism Design System), Vanilla JavaScript (ES Modular)
+ * **Frontend:** Modern HTML5, CSS3, JavaScript (ES Modular)
  * **IDE & Tooling:** Visual Studio Community 2022, Swagger UI
 
 ## Installation
