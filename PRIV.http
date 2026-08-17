@@ -1,0 +1,6 @@
+@PRIV_HostAddress = http://localhost:5171
+
+GET {{PRIV_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRIV | Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">PRIV</a>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="search.html">Search Users</a>
+            <a href="requests.html">Requests</a>
+            <a href="confirmed.html">Confirmed Bookings</a>
+            <a href="settings.html">Settings</a>
+            <button onclick="removeToken()">Logout</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Dashboard</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Upcoming Bookings</h3>
+                <div id="dashUpcoming">Loading...</div>
+                <a href="confirmed.html">View All</a>
+            </div>
+
+            <div class="card">
+                <h3>Pending Approvals</h3>
+                <div id="dashPending">Loading...</div>
+                <a href="requests.html">Manage Requests</a>
+            </div>
+
+            <div class="card">
+                <h3>Quick Actions</h3>
+                <a href="search.html" class="btn">Find User to Book</a>
+                <a href="settings.html" class="btn btn-secondary">Set Blocked Times</a>
+            </div>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script>checkAuth();</script>
+</body>
+</html>

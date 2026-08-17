@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRIV | Connection Requests</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">PRIV</a>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="search.html">Search Users</a>
+            <a href="requests.html">Requests</a>
+            <a href="confirmed.html">Confirmed Bookings</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Pending Access Requests</h2>
+            <p>Manage users who have requested to view your available slots and book time with you.</p>
+            <div id="pendingList" style="margin-top: 1.5rem;">Loading requests...</div>
+        </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/requests.js"></script>
+    <script>
+        checkAuth();
+        document.addEventListener('DOMContentLoaded', loadRequests);
+    </script>
+</body>
+</html>

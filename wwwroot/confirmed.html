@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRIV | Confirmed Bookings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">PRIV</a>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="confirmed.html">Confirmed Bookings</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Confirmed & History Bookings</h2>
+            <div id="confirmedList">Loading bookings...</div>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/schedule.js"></script>
+    <script>
+        checkAuth();
+        document.addEventListener('DOMContentLoaded', loadConfirmedBookings);
+    </script>
+</body>
+</html>

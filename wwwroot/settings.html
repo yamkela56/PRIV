@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRIV | Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">PRIV</a>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Privacy & Search Settings</h2>
+            <label>
+                <input type="checkbox" id="discoverableToggle" onchange="togglePrivacy(this.checked)" />
+                Allow users to find me via @username search
+            </label>
+        </div>
+
+        <div class="card">
+            <h2>Manual Blocked Times</h2>
+            <form onsubmit="addBlockedTime(event)">
+                <label>Start Time</label>
+                <input type="datetime-local" id="blockStart" required />
+
+                <label>End Time</label>
+                <input type="datetime-local" id="blockEnd" required />
+
+                <label>Note (Internal Only)</label>
+                <input type="text" id="blockNote" placeholder="Doctor appointment" />
+
+                <button type="submit">Block Time Slot</button>
+            </form>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script>checkAuth();</script>
+</body>
+</html>

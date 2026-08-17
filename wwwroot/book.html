@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRIV | Book Slot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">PRIV</a>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="confirmed.html">Confirmed Bookings</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Request a Booking</h2>
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <label>Host User ID</label>
+                <input type="number" id="hostId" readonly />
+
+                <label>Booking Type</label>
+                <select id="bookingType">
+                    <option value="Coffee">Coffee</option>
+                    <option value="Business Meeting">Business Meeting</option>
+                    <option value="Date">Date</option>
+                    <option value="Wedding Guest">Wedding Guest</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Study Session">Study Session</option>
+                    <option value="Custom">Custom</option>
+                </select>
+
+                <label>Selected Slot Start Time</label>
+                <input type="text" id="slotStart" readonly />
+
+                <label>Selected Slot End Time</label>
+                <input type="text" id="slotEnd" readonly />
+
+                <h3>Suggest 1–3 Locations</h3>
+                <label>Location 1 (Required)</label>
+                <input type="text" id="loc1" placeholder="e.g. Coffee Shop on Main St" required />
+
+                <label>Location 2 (Optional)</label>
+                <input type="text" id="loc2" placeholder="e.g. Shopping Mall Food Court" />
+
+                <label>Location 3 (Optional)</label>
+                <input type="text" id="loc3" placeholder="e.g. Central Park Bench" />
+
+                <button type="submit">Submit Booking Request</button>
+            </form>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/booking.js"></script>
+    <script>checkAuth();</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRIV | Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">PRIV</a>
+    </header>
+
+    <main class="container">
+        <div class="card auth-card">
+            <h2>Create Your PRIV Account</h2>
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <label>Full Name</label>
+                <input type="text" id="regName" placeholder="John Smith" required />
+
+                <label>Username</label>
+                <input type="text" id="regUser" placeholder="johnsmith" required />
+
+                <label>Email (Optional)</label>
+                <input type="email" id="regEmail" placeholder="john@example.com" />
+
+                <label>Password</label>
+                <input type="password" id="regPass" required />
+
+                <label>Confirm Password</label>
+                <input type="password" id="regPassConfirm" required />
+
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

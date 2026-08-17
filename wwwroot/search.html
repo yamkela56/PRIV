@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRIV | Search Users</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">PRIV</a>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="search.html">Search Users</a>
+            <a href="requests.html">Requests</a>
+            <a href="confirmed.html">Confirmed Bookings</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Search Users</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search @username..." onkeyup="searchUsers()" />
+            </div>
+            <div id="searchResults" class="results-list"></div>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/search.js"></script>
+    <script>checkAuth();</script>
+</body>
+</html>

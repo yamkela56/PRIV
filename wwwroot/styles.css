@@ -1,0 +1,452 @@
+﻿/* 1. CSS CUSTOM PROPERTIES (DESIGN TOKENS) */
+:root {
+    /* Color Palette */
+    --bg-primary: #080A0C; /* Fallback dark tone */
+    --text-primary: #F8FAFC; /* Crisp high-contrast white for headers */
+    --text-muted: #CBD5E1; /* Silver/platinum for body text */
+    --accent-brand: #38BDF8; /* Vibrant electric cyan accent */
+    --accent-brand-hover: #0284C7; /* Deep cyan hover state */
+
+    --border-color: rgba(255, 255, 255, 0.18); /* Glass outline border */
+    --border-subtle: rgba(255, 255, 255, 0.08); /* Divider lines */
+    /* Typography Stack */
+    --font-heading: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+    --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Spacing Scale */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.2s ease-in-out;
+}
+
+
+/* 2. BASE RESET & GLOBAL STYLES */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+body {
+    /* 1. Dark overlay on top of your background image for readability */
+    background: url('bgi7.jpg') no-repeat center center fixed;
+    /* 2. Cover the entire viewport dynamically */
+    background-size: cover;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+/*body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}*/
+
+/* 3. EDITORIAL TYPOGRAPHY HIERARCHY */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    margin-bottom: var(--spacing-md);
+}
+
+h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: var(--spacing-sm);
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+h4 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.05rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* 4. NAVIGATION BAR (Clean Architectural Header) */
+.navbar {
+    background-color: rgba(8, 10, 12, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+    .navbar .logo {
+        color: var(--text-primary);
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        transition: var(--transition-fast);
+    }
+
+        .navbar .logo:hover {
+            color: var(--accent-brand);
+        }
+
+    .navbar nav {
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+
+        .navbar nav a {
+            color: #D1E5E4;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.25rem 0;
+            transition: var(--transition-fast);
+        }
+
+            /* Hover Sliding Underline Effect */
+            .navbar nav a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0%;
+                height: 2px;
+                background-color: var(--accent-brand);
+                transition: var(--transition-smooth);
+            }
+
+            .navbar nav a:hover::after {
+                width: 100%;
+            }
+
+        .navbar nav button {
+            background: transparent;
+            color: #F87171;
+            border: 1px solid #F87171;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+            .navbar nav button:hover {
+                background: #F87171;
+                color: #000000;
+            }
+
+/* 5. LAYOUT CONTAINERS & GRID SYSTEM */
+.container {
+    max-width: 1080px;
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+    width: 100%;
+    flex: 1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+/* 6. STRUCTURAL BLOCKS & CARDS (Flat Design, No Drop Shadows) */
+.card {
+    background: rgba(12, 16, 22, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-radius: 0;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+    transition: var(--transition-smooth);
+}
+
+    .card:hover {
+        background: rgba(18, 24, 32, 0.60);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+/* Hero Section Special Styling */
+.hero {
+    background: rgba(8, 10, 14, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+    .hero h1 {
+        color: var(--bg-primary);
+    }
+
+    .hero p {
+        color: #A0AEC0;
+        font-size: 1.2rem;
+    }
+
+
+/* added 6. TRANSPARENT TABLES & LISTS */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-sm);
+    background: transparent;
+}
+
+th, td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+}
+
+th {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-brand);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.list-item {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--spacing-sm) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 7. BUTTONS & INTERACTIVE STATES */
+button, .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    background-color: var(--accent-brand);
+    color: #080A0C;
+    border: 1px solid var(--accent-brand);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: var(--spacing-sm);
+    transition: var(--transition-smooth);
+}
+
+    button:hover, .btn:hover {
+        background-color: var(--accent-brand-hover);
+        border-color: var(--accent-brand-hover);
+        color: #FFFFFF;
+    }
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+    .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+    }
+
+/* 8. FORMS & INPUT ELEMENTS */
+label {
+    display: block;
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="datetime-local"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+    input:focus, select:focus {
+        border-color: var(--accent-brand);
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+
+/* 9. BICK LAW SIGNATURE HOVER EFFECT (Grayscale to Color Overlay) */
+.media-container, .profile-avatar {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    background-color: var(--text-primary);
+}
+
+    .media-container img, .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%) contrast(110%);
+        transition: var(--transition-smooth);
+        opacity: 0.85;
+    }
+
+    .media-container:hover img, .profile-avatar:hover img {
+        filter: grayscale(0%) contrast(100%);
+        opacity: 1;
+        transform: scale(1.03);
+    }
+
+/* 10. COMPUTED SLOTS GRID */
+.slots-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: var(--spacing-sm);
+}
+
+.slot-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+    .slot-btn:hover {
+        background-color: var(--accent-brand);
+        color: #080A0C;
+        border-color: var(--accent-brand);
+    }
+
+/* 11. LIST ITEMS & STATUS BADGES */
+.list-item {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--spacing-sm) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .list-item:last-child {
+        border-bottom: none;
+    }
+
+.badge {
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-pending {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #FCD34D;
+    border-color: #F59E0B;
+}
+
+.badge-approved {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #6EE7B7;
+    border-color: #10B981;
+}
+
+.badge-declined {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #FCA5A5;
+    border-color: #EF4444;
+}
+
+.badge-cancelled {
+    background-color: rgba(100, 116, 139, 0.2);
+    color: #CBD5E1;
+    border-color: #64748B;
+}
+
+/* 12. RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm);
+    }
+
+        .navbar nav {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+    .container {
+        margin: var(--spacing-md) auto;
+        padding: 0 var(--spacing-sm);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
