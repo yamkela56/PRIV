@@ -33,7 +33,7 @@ PRIV is a privacy-first booking and scheduling platform designed to give users f
 ### Setup Steps
  1. **Clone the repository:**
    ```bash
-   git clone https://github.com/[PLACEHOLDER_USERNAME]/PRIV.git
+   git clone https://github.com/yamekela/PRIV.git
    cd PRIV
    
    ```
