@@ -117,7 +117,8 @@ Contributions are welcome! Please follow these steps:
     
 ## License
 Distributed under the MIT License. See LICENSE for more information.
-## ✉️ Contact
+
+## Contact
  * **Maintainer:** Yamkela Khumalo
  * **Email:** khumaloyamkela56@gmail.com]
  * **Project Link:** https://github.com/yamkela56/PRIV
