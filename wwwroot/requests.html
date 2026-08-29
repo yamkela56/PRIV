@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Requests — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container">
+        <h2>Access Requests</h2>
+        <div class="tabs">
+            <div class="tab active" data-tab="incoming">Incoming</div>
+            <div class="tab" data-tab="outgoing">Outgoing</div>
+        </div>
+
+        <div class="card">
+            <div id="requests-list"><p class="empty-state">Loading…</p></div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/requests.js"></script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

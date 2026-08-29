@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container" style="max-width: 420px;">
+        <div class="card">
+            <h2>Log in</h2>
+            <form id="login-form">
+                <label for="identifier">Username or Email</label>
+                <input id="identifier" type="text" required />
+
+                <label for="password">Password</label>
+                <input id="password" type="password" required />
+
+                <div class="btn-row">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <p id="error-msg" class="error-text" style="display:none;"></p>
+            </form>
+            <p class="hint" style="margin-top:16px;">Need an account? <a href="/register.html">Register</a></p>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script>
+        PRIV.renderNavbar(PRIV.getUser());
+
+        const form = document.getElementById("login-form");
+        const errorMsg = document.getElementById("error-msg");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            errorMsg.style.display = "none";
+            try {
+                const res = await PRIV.request("/auth/login", {
+                    method: "POST",
+                    auth: false,
+                    body: {
+                        usernameOrEmail: document.getElementById("identifier").value,
+                        password: document.getElementById("password").value
+                    }
+                });
+                PRIV.setSession(res);
+                window.location.href = "/dashboard.html";
+            } catch (err) {
+                errorMsg.textContent = err.message;
+                errorMsg.style.display = "block";
+            }
+        });
+    </script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

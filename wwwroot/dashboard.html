@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container">
+        <h2 id="welcome-msg" style="margin-bottom: 4px;"></h2>
+        <p class="hint" style="margin-bottom: 24px;">Here's what's happening with your schedule.</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>Upcoming bookings</h3>
+                <div id="upcoming-list"><p class="empty-state">Loading…</p></div>
+                <div class="btn-row"><a href="/confirmed.html" class="btn">View all bookings</a></div>
+            </div>
+
+            <div class="card">
+                <h3>Pending approvals</h3>
+                <div id="pending-list"><p class="empty-state">Loading…</p></div>
+                <div class="btn-row"><a href="/requests.html" class="btn">View all requests</a></div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>Incoming booking requests</h3>
+                <div id="incoming-bookings-list"><p class="empty-state">Loading…</p></div>
+            </div>
+
+            <div class="card">
+                <h3>Your busy times</h3>
+                <div id="busy-list"><p class="empty-state">Loading…</p></div>
+                <div class="btn-row"><a href="/settings.html#blocked-times" class="btn">Manage busy times</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/dashboard.js"></script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

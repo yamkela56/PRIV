@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Available Slots — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container">
+        <h2 id="slots-heading">Available slots</h2>
+        <p class="hint">Only free/busy is shown — never event names or private details.</p>
+
+        <div class="card">
+            <div class="grid-2">
+                <div>
+                    <label for="from-date">From</label>
+                    <input id="from-date" type="date" />
+                </div>
+                <div>
+                    <label for="to-date">To</label>
+                    <input id="to-date" type="date" />
+                </div>
+            </div>
+            <div class="btn-row">
+                <button id="load-slots-btn" class="btn btn-primary">Show availability</button>
+            </div>
+        </div>
+
+        <div id="slots-results"></div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/slots.js"></script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PRIV — Private, approval-based scheduling</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="hero">
+        <h1 style="text-align: center; align-items: center; margin: 0 auto;">PRIV</h1>
+        <p style="font-size: clamp(16px, 2vw, 20px); display: flex; flex-direction:column; text-align: center; align-items: center; margin: 0 auto;">PRIV is a privacy-first scheduling platform that lets you book time with anyone without exposing your calendar. Unlike traditional schedulers that show when and why you're busy, PRIV only displays computed "Available" slots like 2PM, 3PM, and 5PM — no meeting names, no private details. Users are discovered by unique username or shareable link (/u/username), request access, and once approved, can send booking requests with a type and 1-3 location options. The receiver approves by selecting one location as the confirmed spot, and if declined or cancelled, a reason is required and the slot is automatically freed.</p>
+        <div class="btn-row" style="justify-content: center;">
+            <a href="/register.html" class="btn btn-primary">Get started</a>
+            <a href="/login.html" class="btn">Log in</a>
+        </div>
+
+        <div class="container">
+            <div class="card" id="how-it-works">
+                <h2>How PRIV works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="num">1</div>
+                        <h3>Find someone</h3>
+                        <p>Search a unique username, or open their shareable link like <code>/u/username</code>.</p>
+                    </div>
+                    <div class="step">
+                        <div class="num">2</div>
+                        <h3>Request access</h3>
+                        <p>You can't see anyone's schedule until they approve your request.</p>
+                    </div>
+                    <div class="step">
+                        <div class="num">3</div>
+                        <h3>See only "Available"</h3>
+                        <p>Once approved, you see computed free slots — never event names or private details.</p>
+                    </div>
+                    <div class="step">
+                        <div class="num">4</div>
+                        <h3>Book with confidence</h3>
+                        <p>Pick a type, a time, and 1–3 location ideas. They approve, pick a location, and it's confirmed.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <h2>Search for someone</h2>
+                <p class="hint">Log in to search for a username and request access to their availability.</p>
+                <a href="/search.html" class="btn btn-primary">Go to search</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script>
+        PRIV.renderNavbar(PRIV.getUser());
+    </script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

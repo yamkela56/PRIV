@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Find someone</h2>
+            <input id="search-input" type="text" placeholder="@username" autocomplete="off" />
+            <p class="hint">No calendars are shown here — just names, usernames, and a way to request access.</p>
+        </div>
+
+        <div class="card">
+            <div id="results-list"><p class="empty-state">Start typing a username to search.</p></div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/search.js"></script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

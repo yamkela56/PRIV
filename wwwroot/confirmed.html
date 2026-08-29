@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookings — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container">
+        <h2>Your Bookings</h2>
+        <div class="tabs">
+            <div class="tab active" data-status="">All</div>
+            <div class="tab" data-status="Pending">Pending</div>
+            <div class="tab" data-status="Approved">Upcoming</div>
+            <div class="tab" data-status="Completed">History</div>
+            <div class="tab" data-status="Declined">Declined</div>
+            <div class="tab" data-status="Cancelled">Cancelled</div>
+        </div>
+
+        <div class="card">
+            <div id="bookings-list"><p class="empty-state">Loading…</p></div>
+        </div>
+    </div>
+
+    <!-- Decline / cancel reason modal (simple inline form, no external libs) -->
+    <div id="reason-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); align-items:center; justify-content:center;">
+        <div class="card" style="max-width:400px; width:90%;">
+            <h3 id="reason-modal-title">Provide a reason</h3>
+            <textarea id="reason-input" placeholder="e.g. Already have plans"></textarea>
+            <div class="btn-row">
+                <button id="reason-submit-btn" class="btn btn-danger">Submit</button>
+                <button id="reason-cancel-btn" class="btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/confirmed.js"></script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container" style="max-width: 460px;">
+        <div class="card">
+            <h2>Create your account</h2>
+            <form id="register-form">
+                <label for="name">Name</label>
+                <input id="name" type="text" required maxlength="100" />
+
+                <label for="username">Username</label>
+                <input id="username" type="text" required maxlength="50" placeholder="e.g. yamkelakhumalo" />
+                <p class="hint">Letters, numbers, underscores and dots only. Usernames are unique (not case-sensitive).</p>
+
+                <label for="email">Email (optional)</label>
+                <input id="email" type="email" maxlength="256" />
+
+                <label for="password">Password</label>
+                <input id="password" type="password" required minlength="8" />
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input id="confirmPassword" type="password" required minlength="8" />
+
+                <div class="btn-row">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+                <p id="error-msg" class="error-text" style="display:none;"></p>
+            </form>
+            <p class="hint" style="margin-top:16px;">Already have an account? <a href="/login.html">Log in</a></p>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script>
+        PRIV.renderNavbar(PRIV.getUser());
+
+        const form = document.getElementById("register-form");
+        const errorMsg = document.getElementById("error-msg");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            errorMsg.style.display = "none";
+
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            if (password !== confirmPassword) {
+                errorMsg.textContent = "Passwords do not match.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            try {
+                const res = await PRIV.request("/auth/register", {
+                    method: "POST",
+                    auth: false,
+                    body: {
+                        name: document.getElementById("name").value,
+                        username: document.getElementById("username").value,
+                        email: document.getElementById("email").value || null,
+                        password,
+                        confirmPassword
+                    }
+                });
+                PRIV.setSession(res);
+                window.location.href = "/dashboard.html";
+            } catch (err) {
+                errorMsg.textContent = err.message;
+                errorMsg.style.display = "block";
+            }
+        });
+    </script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

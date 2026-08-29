@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container">
+        <h2>Settings</h2>
+
+        <div class="card">
+            <h3>Profile</h3>
+            <form id="profile-form">
+                <label for="settings-name">Name</label>
+                <input id="settings-name" type="text" maxlength="100" />
+                <label for="settings-bio">Bio</label>
+                <textarea id="settings-bio" maxlength="500"></textarea>
+                <div class="btn-row"><button type="submit" class="btn btn-primary">Save profile</button></div>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>Privacy</h3>
+            <div class="toggle-row">
+                <div>
+                    <strong>Discoverable in search</strong>
+                    <div class="hint">If off, people can only find you via your direct profile link.</div>
+                </div>
+                <input type="checkbox" id="discoverable-toggle" style="width:auto;" />
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Username</h3>
+            <form id="username-form">
+                <label for="new-username">Username</label>
+                <input id="new-username" type="text" maxlength="50" />
+                <div class="btn-row"><button type="submit" class="btn btn-primary">Update username</button></div>
+                <p id="username-msg" style="display:none;"></p>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>Password</h3>
+            <form id="password-form">
+                <label for="current-password">Current password</label>
+                <input id="current-password" type="password" />
+                <label for="new-password">New password</label>
+                <input id="new-password" type="password" minlength="8" />
+                <div class="btn-row"><button type="submit" class="btn btn-primary">Change password</button></div>
+                <p id="password-msg" style="display:none;"></p>
+            </form>
+        </div>
+
+        <div class="card" id="blocked-times">
+            <h3>Blocked / Busy Times</h3>
+            <p class="hint">These block scheduling — they're never shown to other users, only used to compute your Available/Unavailable slots.</p>
+
+            <div id="blocked-times-list"><p class="empty-state">Loading…</p></div>
+
+            <h4>Add a busy time</h4>
+            <form id="blocked-time-form">
+                <label for="block-mode">Repeats</label>
+                <select id="block-mode">
+                    <option value="recurring">Every week on…</option>
+                    <option value="specific">One specific date</option>
+                </select>
+
+                <div id="recurring-fields">
+                    <label for="block-day">Day of week</label>
+                    <select id="block-day">
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+                </div>
+                <div id="specific-fields" style="display:none;">
+                    <label for="block-date">Date</label>
+                    <input id="block-date" type="date" />
+                </div>
+
+                <div class="grid-2">
+                    <div>
+                        <label for="block-start">Start time</label>
+                        <input id="block-start" type="time" />
+                    </div>
+                    <div>
+                        <label for="block-end">End time</label>
+                        <input id="block-end" type="time" />
+                    </div>
+                </div>
+
+                <label for="block-label">Label (private, only visible to you)</label>
+                <input id="block-label" type="text" maxlength="100" placeholder="Busy" value="Busy" />
+
+                <div class="btn-row"><button type="submit" class="btn btn-primary">Add busy time</button></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/settings.js"></script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>

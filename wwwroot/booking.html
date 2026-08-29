@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book — PRIV</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar" id="priv-navbar"></div>
+
+    <div class="container" style="max-width: 560px;">
+        <h2 id="booking-heading">Book time</h2>
+
+        <div class="card">
+            <form id="booking-form">
+                <label for="booking-type">Booking type</label>
+                <select id="booking-type">
+                    <option value="Coffee">Coffee</option>
+                    <option value="BusinessMeeting">Business Meeting</option>
+                    <option value="Date">Date</option>
+                    <option value="WeddingGuest">Wedding Guest</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Interview">Interview</option>
+                    <option value="StudySession">Study Session</option>
+                    <option value="FamilyVisit">Family Visit</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Custom">Custom</option>
+                </select>
+
+                <div id="custom-type-wrap" style="display:none;">
+                    <label for="custom-type-label">Custom type name</label>
+                    <input id="custom-type-label" type="text" maxlength="100" placeholder="e.g. Book Club" />
+                </div>
+
+                <label for="booking-date">Date</label>
+                <input id="booking-date" type="date" required />
+
+                <div class="grid-2">
+                    <div>
+                        <label for="start-time">Start time</label>
+                        <input id="start-time" type="time" required />
+                    </div>
+                    <div>
+                        <label for="end-time">End time</label>
+                        <input id="end-time" type="time" required />
+                    </div>
+                </div>
+                <p class="hint">Tip: check <a id="slots-link" href="#">available slots</a> first to pick a free time.</p>
+
+                <label>Location options (1–3)</label>
+                <div id="location-options">
+                    <div class="location-option-row">
+                        <input type="text" class="location-input" placeholder="Location 1" maxlength="200" required />
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button type="button" id="add-location-btn" class="btn">+ Add location option</button>
+                </div>
+
+                <div class="btn-row">
+                    <button type="submit" class="btn btn-primary">Submit booking request</button>
+                </div>
+                <p id="booking-msg" style="display:none;"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/booking.js"></script>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>&copy; 2026 PRIV. All rights reserved.</p>
+    </footer>
+</body>
+</html>
