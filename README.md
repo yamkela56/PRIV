@@ -78,7 +78,7 @@ PRIV/
    - Both users can see it under **Bookings**, and either can **Cancel**
      with a reason, which frees the slot again.
 
-## Key design notes (useful if you need to explain/defend the project)
+## Key design notes
 
 - Privacy boundary: `SlotsController` + `SlotService` never return event
   names, blocked-time labels, or booking details to the requester — only
