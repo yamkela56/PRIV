@@ -1,7 +1,6 @@
 # PRIV
 
-A booking system where User A never sees User B's calendar — only computed
-Available/Unavailable slots, and only after User B approves an access request.
+PRIV is a privacy-first booking and scheduling platform designed to give users full control over their availability and location disclosures. By eliminating publicly visible calendars and requiring mutual approval for time slots, PRIV solves the privacy risks associated with traditional open scheduling tools. It allows users to control access to their available slots, propose custom meeting locations, and manage incoming connection requests securely.
 
 ## Target Users
 * Privacy-Conscious Professionals: Individuals who want to prevent open public indexing of their daily schedules.
